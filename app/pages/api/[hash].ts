@@ -17,9 +17,11 @@ export default async function handler(
     const result = await NFTGenerator(res);
     console.log(result)
     
+    //@ts-ignore
     result.pipe(res);
   } catch(e) {
     console.log(e)
+    // @ts-ignore
     res.status(500).send(e)
   }
 }
