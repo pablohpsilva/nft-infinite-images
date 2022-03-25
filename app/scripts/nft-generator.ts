@@ -61,19 +61,23 @@ export default function NFTGenerator(response:any) {
 
   // @ts-ignore
   [...Array(MAX_CIRCLES2).keys()].forEach((_, k) => {
-    const fillColor = `rgb(0,${Math.floor(255 - 42.5 * 3)},${Math.floor(255 - 42.5 * 6)})`;
+    const fillColor = `rgb(0,${Math.floor(255 - 42.5 * 5)},${Math.floor(255 - 42.5 * 6)})`;
     ctx.strokeStyle = fillColor;
     ctx.beginPath();
-    ctx.arc(xOfK2(k) * 800, yOfK2(k) * 1300, rOfK2(k) * 2000, 0, 2 * PI);
+    ctx.arc(xOfK2(k) * 800, yOfK2(k) * 1000, rOfK2(k) * 1000, 0, 2 * PI);
     ctx.stroke();
   });
-
-  canvas.createPNGStream().on('data', (data) => {
-        response.writeHead(200, { 'Content-Type': 'image/png' });
-        // response.write(Buffer.from(data));
-        // response.end();
-        response.end(Buffer.from(data));
-    });
+  
+  return new Promise((resolve, reject) => {
+    resolve(canvas.createPNGStream())
+    // canvas.createPNGStream().on('data', (data) => {
+    //   // response.write(Buffer.from(data));
+    //     // response.end();
+    //     // return resolve(response.end(Buffer.from(data)));
+    //     console.log(typeof data)
+    //     return resolve(data);
+    // });
+  })
 }
 
 // // void ctx.arc(x, y, radius, startAngle, endAngle [, counterclockwise]);
