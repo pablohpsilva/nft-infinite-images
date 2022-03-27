@@ -1,6 +1,8 @@
 // "name-iterations-height-width-diameter-color[]-renderFunction[]"
 // "1-20000-1000-1000-500-123412,123412,123412,123412-1,2,3,4,5"
 
+// any-[1000-150000]-[500-2000]-[500-2000]-[500-2000]-[0-146][2]-[0-3][3]
+
 const DELIMITER = "-";
 
 function generateHash({

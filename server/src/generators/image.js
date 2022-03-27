@@ -28,7 +28,7 @@ function NFTGenerator({
   const maxIterations = [...Array(iterations).keys()];
   
   renderFunctionIndexes.forEach((funcIndex) => {
-    const [xOfK2, yOfK2, rOfK2] = functions[funcIndex % functionsLength];
+    const [xOfK, yOfK, rOfK] = functions[funcIndex % functionsLength];
     
     maxIterations.forEach((_, k) => {
       const fillColor = "#ffffff";
@@ -36,9 +36,9 @@ function NFTGenerator({
       ctx.beginPath();
 
       const coordinates = [
-        Math.abs(xOfK2(iterations, k)) * height,
-        Math.abs(yOfK2(iterations, k)) * width,
-        Math.abs(rOfK2(iterations, k)) * diameter,
+        Math.abs(xOfK(iterations, k)) * height,
+        Math.abs(yOfK(iterations, k)) * width,
+        Math.abs(rOfK(iterations, k)) * diameter,
         0,
         2 * PI,
       ];
